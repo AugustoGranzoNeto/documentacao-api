@@ -1,0 +1,422 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Marketplace API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/{v}/solicitacoescompras-integracao": {
+      "post": {
+        "tags": [
+          "SolicitacoesCompras"
+        ],
+        "parameters": [
+          {
+            "name": "v",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitacaoCompraDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitacaoCompraDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitacaoCompraDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitacaoCompraDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ItemSolicitacaoCompraDto": {
+        "type": "object",
+        "properties": {
+          "codigoItemRc": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoRc": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricaoItemRc": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoCompradorErp": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoContrato": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "infoRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricaoProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "utilizacaoProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoOrigemProduto": {
+            "type": "string",
+            "nullable": true
+          },
+          "ncm": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoFilialEmpresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoEmpresa": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoDeposito": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoCategoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeCategoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "number",
+            "format": "double"
+          },
+          "siglaUnidadeMedida": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricaoUnidadeMedida": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataRemessa": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "valorReferencia": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantidadeUnidadesPreco": {
+            "type": "number",
+            "format": "double"
+          },
+          "tipoItem": {
+            "type": "string"
+          },
+          "codigoClassificacaoContabil": {
+            "type": "string",
+            "nullable": true
+          },
+          "fornecedorFixo": {
+            "type": "string",
+            "nullable": true
+          },
+          "fornecedorPretendido": {
+            "type": "string",
+            "nullable": true
+          },
+          "moeda": {
+            "type": "string",
+            "nullable": true
+          },
+          "previsaoEntregaDias": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "numeroPacote": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "codigoContaContabil": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeContaContabil": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoCentroCusto": {
+            "type": "string",
+            "nullable": true
+          },
+          "centroCusto": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoImobilizado": {
+            "type": "string",
+            "nullable": true
+          },
+          "subNumeroImobilizado": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeImobilizado": {
+            "type": "string",
+            "nullable": true
+          },
+          "ordem": {
+            "type": "string",
+            "nullable": true
+          },
+          "elementoPep": {
+            "type": "string",
+            "nullable": true
+          },
+          "diagramaRede": {
+            "type": "string",
+            "nullable": true
+          },
+          "pedidoEliminado": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoriaDemanda": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "sla": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeResponsavel": {
+            "type": "string",
+            "nullable": true
+          },
+          "subItens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubItemSolicitacaoCompraDto"
+            },
+            "nullable": true
+          },
+          "rateios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemSolicitacaoCompraRateioDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemSolicitacaoCompraRateioDto": {
+        "type": "object",
+        "properties": {
+          "codigoCentroCusto": {
+            "type": "string",
+            "nullable": true
+          },
+          "centroCusto": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoContaContabil": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeContaContabil": {
+            "type": "string",
+            "nullable": true
+          },
+          "percentualRateio": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SolicitacaoCompraDto": {
+        "type": "object",
+        "properties": {
+          "codigoRc": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricaoRc": {
+            "type": "string",
+            "nullable": true
+          },
+          "userRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomeRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "departamento": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefoneRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "ramalRequisitante": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataCriacaoRc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dataLiberacaoRc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "valorRequisicao": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "itens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemSolicitacaoCompraDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubItemSolicitacaoCompraDto": {
+        "type": "object",
+        "properties": {
+          "numeroPacoteServico": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idSubItem": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nomeServico": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroServico": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "siglaUnidadeMedida": {
+            "type": "string",
+            "nullable": true
+          },
+          "precoBruto": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "precoLiquido": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "codigoCategoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorReferencia": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "codigoTarifaFiscal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Header de autorização JWT usando o esquema Bearer. Example: \"Authorization: Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
